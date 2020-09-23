@@ -1,0 +1,48 @@
+
+Hinweise zur Arbeit mit BOUML
+=============================
+
+Artefakte im Komponentendiagramm
+________________________________
+
+Im Komponentendiagramm (CMD) kann man leider keine Artefakte anlegen.
+
+Ich habe auch den Studenten kontaktiert, der sich die Musterlösungen
+ausgedacht hatte. Er hatte es unter der Version: 4.16.2 getestet.
+Allerdings gibt es da in der Tat einen kleinen Trick.
+
+Man kann im CMD eine neue Komponente anlegen und bei den Eigenschaften
+unter Stereotype "artifact" eintragen, also so, wie wir es heute schon
+in der Lehrveranstaltung getan hatten.
+(Achtung: Der Stereotyp "artifact" ist nicht als Option im Auswahlfeld
+vorhanden, kann aber einfach per Hand hinein geschrieben werden.)
+
+Der Umweg über die Deployment-View hilft leider auch nicht,
+da der erstellte Artefakt nicht ins CMD eingefügt werden kann.
+
+Generieren von Quelltext
+________________________
+
+Quelltext kann nur generiert werden, wenn:
+
+0 Java als Programmiersprache der Wahl SOFORT nach dem Erstellen des Projektes eingestellt wurde
+- sonst werden offenbar BOUML-intern beim Anlegen neuer Pakete und Klassen notwendige
+  Konstrukte nicht generiert, wodurch später kein Java-Quelltext generiert werden kann
+- außerdem kann es beim Umschalten zwischen Stereotypen im Artefakt-Dialog
+  passieren, dass Tab-Seiten ausgegraut werden
+
+1 ein Pfad für den Quelltext eingestellt wurde unter:
+| Project | Edit | Generation Settings | Directory | Java root dir
+
+2 ein zugehöriger relativer Pfad eingestellt wurde unter:
+| (Wurzelpaket oder untergeordnetes Paket) | (Kontextmenü) | Edit | Java | directory
+
+3 eine "Deployment View" erstellt wurde
+
+4 mindestens ein Artefakt mit dem Stereotyp <<source>> erstellt wurde
+
+5 mindestens eine Klasse dem Artefakt zugeordnet wurde unter:
+| (Kontextmenü des Artefaktes) | Edit artifact | Associated classes | (von links nach rechts)
+
+6 die zu generierenden Quelltext-Bestandteile festgelegt wurden unter:
+| (Kontextmenü des Artefaktes) | Edit artifact | Java source | Default definition
